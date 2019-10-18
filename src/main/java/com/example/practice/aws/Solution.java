@@ -2,38 +2,61 @@ package com.example.practice.aws;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Solution
 {
+    public List<String> prioritizedOrders(int numOrders, List<String> orderList)
+    {
+        List<String> primeList =  orderList.stream()
+                .filter(p -> !((String)p).split(" ")[1]
+                        .matches("[0-9]+"))
+                .sorted(Comparator.comparing(c -> ((String)c).split(" ")[1]))
+            .collect(Collectors.toList());
 
+        List<String> nonPrimeList  =  orderList.stream()
+                .filter(p -> ((String)p).split(" ")[1].matches("[0-9]+")).sorted(   Comparator.reverseOrder())
+                .collect(Collectors.toList());
 
-    public int minimumDistance(int numRows, int numColumns, List<List<Integer>> area){
-
-        boolean[][] visited = new boolean[area.size()][area.get(0).size()];
-        int[] firstCell = new int[]{0, 0, 0};
-        LinkedList<int[]> queue = new LinkedList();
-        queue.add(firstCell);
-        while (queue.isEmpty()){
-            int[] cell = queue.poll();
-            if(visited[cell[0]][cell[1]]) continue;
-            int x = cell[0];
-            int y = cell[1];
-            int distance = cell[2];
-            for(int i = x-1; i <= x +1; i++) {
-                for(int j = y-1; j < y+1; j++) {
-                    if(i<area.size()&& j< area.get(0).size() && area.get(i).get(j).equals(1)){
-                        if(area.get(i).get(j).equals(9))
-                            return distance +1;
-                        queue.add(new int[]{i, j, distance+ 1});
-                    }
-                }
-
-            }
-        }
-        return 0;
+        primeList.addAll(nonPrimeList);
+        return primeList;
+        // WRITE YOUR CODE HERE
     }
 
 
-    // METHOD SIGNATURE ENDS
+    public List<List<Integer>> optimalUtilization(int maxTravelDist,
+                                           List<List<Integer>> forwardRouteList,
+                                           List<List<Integer>> returnRouteList)
+    {
+        
+        List<List<Integer>> temporalList = new ArrayList();
+        List<List<Integer>> solution = new ArrayList();
+        Map<Integer, Integer> bucketValues = new HashMap();
+        forwardRouteList.forEach(route -> bucketValues.put(route.get(1), route.get(0)));
+        Map<Integer, Integer> bucketValuesReturn = new HashMap();
+        returnRouteList.forEach(route -> bucketValuesReturn.put(route.get(1), route.get(0)));
+        returnRouteList.forEach(route ->{
+            if(bucketValues.get(maxTravelDist- route.get(1)) != null){
+                solution.add(new ArrayList(Arrays.asList(bucketValues.get(maxTravelDist- (Integer) route.get(1)), route.get(0)))
+                );
+            }
+            else {
+                List<List<Integer>> collect = forwardRouteList.stream()
+                        .filter(forwardR -> route.get(1) + forwardR.get(1) < maxTravelDist)
+                        .map(r ->new ArrayList<>(Arrays.asList(route.get(1) , r.get(1))))
+                        .collect(Collectors.toList());
+                temporalList.addAll(collect);
+
+            }
+        });
+        if(!temporalList.isEmpty() && solution.isEmpty()){
+            List<Integer> maxValues = Collections.singletonList(temporalList.stream().max(Comparator.comparing(v -> v.get(0) + v.get(1))).get()).get(0);
+
+            solution.add(new ArrayList<>(Arrays.asList(bucketValues.get(maxValues.get(1)), bucketValuesReturn.get(maxValues.get(0)))));
+        }
+        solution.sort(Comparator.comparing(l -> l.get(0)));  
+        return   solution;
+        // WRITE YOUR CODE HERE
+    }
+
+
 }

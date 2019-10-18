@@ -2,8 +2,8 @@ package com.example.practice.aws
 
 import spock.lang.Specification
 
-class SolutionTest extends Specification {
-   Solution solution = new  Solution()
+class MinimumDistanceTest extends Specification {
+   MinimumDistance solution = new  MinimumDistance()
    def "test"(){
     given:
     AwsTruck awsTruck = new AwsTruck();
@@ -47,7 +47,7 @@ class SolutionTest extends Specification {
 
  def "dsadsa"(){
  given:
- com.example.practice.documentation.Solution solution1 = new com.example.practice.documentation.Solution()
+ Solution solution1 = new Solution()
  when:
 
  solution1.prioritizedOrders(1, ["r1 box ape bit", "br8 eat num did", "T2 13" ])
@@ -58,7 +58,7 @@ class SolutionTest extends Specification {
 
  def "dsfsdsadsa"(){
   given:
-  com.example.practice.documentation.Solution solution1 = new com.example.practice.documentation.Solution()
+  Solution solution1 = new Solution()
   List<List<Integer>> f =  [[1,8],[2,7],[3,14]]
   List<List<Integer>> r = [[1,5],[2,10],[3,14]]
 
@@ -72,7 +72,7 @@ class SolutionTest extends Specification {
 
  def "dsfsdsasadsa"(){
   given:
-  com.example.practice.documentation.Solution solution1 = new com.example.practice.documentation.Solution()
+  Solution solution1 = new Solution()
   List<List<Integer>> f =  [[1,8],[2,15],[3,9]]
   List<List<Integer>> r = [[1,8],[2,11],[3,12]]
 
