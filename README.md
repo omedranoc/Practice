@@ -1,4 +1,5 @@
-### This repo contains what I am stuying right now and also contains some exercises that I have done in different programming sites
+### This repo contains what I am studying right now and also contains some exercises that I have done in different programming sites
+1. [AWS Certification](documentation/recursion.md)
 + *Access management basics*:
 
     + Elasticity: when horizontally scaling is used to match  capacity with demand
@@ -98,4 +99,4 @@
         + when a role is asume the STS ( Security token service) generates a temporal set of access keys
         + the roles is assume if:
         
-        + ![](.README_images/b569a3f6.png)
+        + ![](documentation/images/roles.png)
