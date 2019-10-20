@@ -4,7 +4,7 @@
 
     + Elasticity: when horizontally scaling is used to match  capacity with demand
     + principal: a person that can make and authenticated or anonymous call.
-    + Authentication: 5proccess to authenticate a principal against an identity
+    + Authentication: proccess to authenticate a principal against an identity
     + Identity: Objects that require authentication or are authorized to access resources.
     + Authorization: the process or denying or allowing access to a resource for an identity.
     + High availability: hardware and software that allow the system to recover quickly in case of failure
