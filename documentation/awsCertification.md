@@ -4,7 +4,7 @@
 
     + Elasticity: when horizontally scaling is used to match  capacity with demand
     + principal: a person that can make and authenticated or anonymous call.
-    + Authentication: proccess to authenticate a principal against an identity
+    + Authentication: 5proccess to authenticate a principal against an identity
     + Identity: Objects that require authentication or are authorized to access resources.
     + Authorization: the process or denying or allowing access to a resource for an identity.
     + High availability: hardware and software that allow the system to recover quickly in case of failure
@@ -98,5 +98,61 @@
     4. Roles: they are assume by another identity allowed in the trust policy
         + when a role is asume the STS ( Security token service) generates a temporal set of access keys
         + the roles is assume if:
+        + ![](images/roles.png )
+
++ Compute
+    + Ec2 INSTANCES grouped by:
+        + General purpose
+        + compute optimized 
+        + Memory optimized
+        + Storage optimized
+        + Acelerated computing
         
-        + ![](images/roles.png)
+    + In*stances types include:
+        + Low cost t2, t3 ..
+    
+    + Instance sizes:
+        + Nano, micro, small, medium, large
+        
+    + EBS Elastic block store: creates and manage volumes
+    
+        + EBS snapshots: copies of data through time
+        
+        + Security groups: Software farewalls that can be attached to a network interface
+        
+        + Instance metadata: data related to the instance that can be accessed from inside
+        
+    + Amazon machine images:  are used to build instances, they store snapshots, permissions...
+        + configure instance -> create the image -> launch the image
+        
+    + Bootstrapping is a process where the  instructions are execute  on an instance during its lunch process
+     
+    + Instance roles  can be assigned by EC2 using an intermediary  called instance profile
+    
++ Networking 
+    + VPC Virtual private cloud
+        +  Isolated from other VPCs by default
+        +  Regional
+        +  Every VPC has a vpc router 
+            + It has  an interface  in every VPC subnet known as the "subnet+1"
+        + has a bastion host:
+            + a host that sits  on the VPC perimeter entry point for trusted admins
+        + NAT static NAT and dynamic NAT    
+        + NACL network access control list: has two sets of rules inbound and outbound
+        + VPC pairing: allows communication between VPCs
+        + vpc endpoints: Are gateways objects created within a VPC
+            + Gateways endpoints
+            + Interface endpoints
+        + DNS domain name service: 
+            + CNAME records allows aliases to be created to certain domains
+            
+        + ROUTE 53
+            + weighted routing: control the amount of traffic that reaches a specific resource.
+            + geolocation routing
+            
+            
+        
+        
+
+        
+    
