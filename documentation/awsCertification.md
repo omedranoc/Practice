@@ -150,6 +150,118 @@
             + weighted routing: control the amount of traffic that reaches a specific resource.
             + geolocation routing
             
++ Storage and content delivery
+    + s3 access is controlled using bucket policies and ACLs
+        + single put upload: upload in a single stream of data
+        + multiparUpload : object is broken in parts and uploaded
+        + can be configure to host web pages
+        + You can use presigned urls
+        + storage tier that charge base on the frecuency access to the objects in the tier
+            + standard, infrequent access, glacier
+        + storage can be controlled with lifeCycle rules
+    + cloudfront content delivery network: global cache that stores copy of your data on edge points
+    
++ Databases:
+    + RDBMS     
+        + ACID: atomicy, consistency, Isolation, durability that affects the performance
+        
+    + AWS has the option of database as a service: Dbass
+    + can be on 1 or multiple availability zones
+    + DynamoDb NoSql
+        + Table a collection of items that share the same partition key
+        + Item a collection of attributes that have the same key structure
+    + Dax in memory cache design for dynamoDb
+    
++ Hybrid and Scaling
+    + ELB elastic load balancing: Distribute incoming connections to a group of servers
+        + three versions:
+            + Classic CLB (application)
+            + Application ALB
+            + Network (NLB)
+     
+    + Autoscale groups: templates to  scale in or scale out based on configurable metrics, are paired with ELBs
+    + Direct connect: physical connection 
+    + VPN vs direct connect
+        + VPN
+            + can be deployed in minutes
+            + Cheap and economical.
+            + Encryption required
+            + Flexibility to change locations
+            + Short term connectivity.
+            
+        + Direct Connect
+            + Higher throughput
+            + Consistent performance
+            + Consistent low latency
+            + Large amounts of data
+            + No contention with existing internet Connection
+            
+        + Both 
+            
+            + VPN as additional layer of HA
+            + VPN if some form of connectivity is needed immediately, before the DX connection is live
+            + Can be used to add encription over the top of DX
++ Snowball and snowmobile device
+    + Snowball
+        + 50 to 70 TB capacity
+    + Snowball edge: 
+        + Includes both storage and  compute
+    + SnowMobile
+        + Portable datacenter.
+
++ Data Migration: 
+    + Storage gateway: Is a hybrid service that allows you to migrate data into AWS, there are three types:
+        + File Gateway
+        + Volume Gateway
+        + Tape Gateway 
+    + Database migration DMS: is a service to migrate relational databases.
++ Identity federation IDF
+    + Is an architecture where identities from a external provider  are recognized
+    + Types:
+        + Cross account roles: A remote account is allowed to assume a role
+        + SAML 2.0 IDF allow active directory users to log into AWS
+        + Web Identity Federation such as google and amazon.
+        + ![](images/webfederation.png )
++ Application Analytics and operations:
+    + Application integration:
+        + SNS: Publisher -> topic -> subscriber
+        + SQS: Decouple messages from two services
+    + Elastic Transcoder: Allows you to convert media files from an input media format into another.
+    + Amazon athena: interactive query service, allow queries from different range of sources.
+    + Elastic Map Reduce:  Is a tool for large scale parallel processing of big data
+    + Kinesis: It is designed to ingest large amounts of data that can be access by the consumers.
+    + RedShift: It is a warehouse database designed for analytical workloads
+    + Logging and monitoring
+        + CloudWatch: Produce real time monitoring
+            + Data retention is based in granularity 
+            + Logs Monitor and access logs form different services
+                + Log events: is a timestamp and a raw message
+                + Log stream: Is a sequence of events from the same source
+                + Log group: Is a container for log streams
+        + CloudTrail: Records account activity inside AWS
+    + VPC flow logs
+        + Allows you to capture metadata from the inbound and outbound traffic.
+    + KMS Key management service: Provides regional, secure key management and encryption and description services.
+    + ElasticBeanStalk
+    + + ![](images/elasticbeanstalk.png )
+    
+           
+            
+             
+    
+    
+    
+        
+    
+
+                    
+    
+            
+    
+    
+        
+    
+            
             
         
         
