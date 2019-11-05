@@ -78,5 +78,6 @@
 + Route 53 weighed routing: How much traffic is routed to each resource 
 + Route 53 simple routing: traffic is route based on the dns records
 + cross-account: allow customers to securely grant access to aws resources to their accounts 
++ Amazon DynamoDB Accelerator (DAX)
 
  
