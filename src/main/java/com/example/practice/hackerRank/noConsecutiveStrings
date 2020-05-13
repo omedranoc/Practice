@@ -1,0 +1,38 @@
+
+noConsecutiveStrings(String input){
+baaaaa
+b
+a a a a
+
+
+    Set<Character> counter = new HashSet();
+    int solution = 0;
+    for(int i =0; i < input.length; i++){
+
+
+           if("a".equals(input.charAt(i)){
+                int counter = 1; aaa;
+                while("a".equals(input.charAt(i + counter))){
+                        if (counter > 1){
+                            solution++;
+                        }
+                counter ++;
+                 i+counter;
+
+                }
+
+           }
+              if("b".equals(input.charAt(i)){
+                           int counter = 1; aaa;
+                           while("b".equals(input.charAt(i + counter))){
+                               if (counter > 1){
+                                   solution++;
+                               }
+                           counter ++;
+                           }
+                      }
+
+           }
+    }
+    }
+}

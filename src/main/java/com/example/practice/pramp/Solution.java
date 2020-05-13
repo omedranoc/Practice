@@ -7,51 +7,50 @@ import java.util.Map;
 
 class Solution {
 
-//Merging 2 Packages
-//    Merging 2 Packages
-//    Given a package with a weight limit limit and an array arr of item weights, implement a function getIndicesOfItemWeights that finds two items whose sum of weights equals the weight limit limit. Your function should return a pair [i, j] of the indices of the item weights, ordered such that i > j. If such a pair doesn’t exist, return an empty array.
-//
-//    Analyze the time and space complexities of your solution.
-//
-//            Example:
-//
-//    input:  arr = [4, 6, 10, 15, 16],  lim = 21
-//
-//    output: [3, 1] # since these are the indices of the
-//               # weights 6 and 15 whose sum equals to 21
-//    Constraints:
-//
-//            [time limit] 5000ms
-//
-//[input] array.integer arr
-//
-//0 ≤ arr.length ≤ 100
-//            [input] integer limit
-//
-//[output] array.integer
 
-    static int[] getIndicesOfItemWeights(int[] arr, int limit) {
-        Map<Integer, Integer> mapOfIndices = new HashMap();
 
-        for (int i = 0; i <arr.length; i++){
-            int w = arr[i];
-            Integer complementIndex = mapOfIndices.get(limit - w);
-            if(complementIndex != null){
-                return new int[]{i, complementIndex};
+        static int numOfPathsToDest(int n) {
+            // your code goes here
+            // it cannot cross the diagonal border.
+            // bre
+            //[]
+            int[][] matrix = new int[n][n];
+            int pointer = n-1;
+            int j =0;
+            for(int i = 0; i < n; i ++){
+                         j = i;
+
+                       while(j <= pointer) {
+                           matrix[i][j] = 1 ;
+                           j++;
+                       }
+
+
             }
-            mapOfIndices.put(arr[i], i);
-
-
+            System.out.println(matrix);
+            return path(matrix, 0, 0, n);
         }
 
-        return new int[0];
+        static int path( int[][] matrix, int i, int j,int n){
+            int[] dp = new int[n];
+            if(i<0 || i >= matrix.length || j >= matrix.length ||  matrix[i][j] ==0 || j <0 ){
+                return 0;
+            }else if( i == n -1  && j == n -1){
+                return 1;
+            }
+            if(dp[n-1] == 0){
+                int left = path(matrix, i +1, j, n);
+                int right= path(matrix, i, j +1, n);
+                dp[n-1] = left + right;
+            }
+            return dp[n-1];
+        }
 
-    }
+        public static void main(String[] args) {
+            System.out.println(numOfPathsToDest(4));
+        }
 
-    public static void main(String[] args) {
-        System.out.println(getIndicesOfItemWeights(new int[]{4, 6, 10, 15, 16}, 21)[0]);
-        System.out.println(getIndicesOfItemWeights(new int[]{4, 6, 10, 15, 16}, 21)[1]);
-    }
+
 
 
 }
