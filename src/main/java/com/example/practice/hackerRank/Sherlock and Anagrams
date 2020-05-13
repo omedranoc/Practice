@@ -1,0 +1,56 @@
+Two strings are anagrams of each other if the letters of one string can be rearranged to form the other string.
+
+Given a string, find the number of pairs of substrings of the string that are anagrams of each other.
+
+For example , the list of all anagrammatic pairs is  at positions  respectively.
+
+Function Description
+
+Complete the function sherlockAndAnagrams in the editor below. It must return an integer that represents the number of anagrammatic pairs of substrings in .
+
+sherlockAndAnagrams has the following parameter(s):
+
+s: a string .
+Input Format
+
+The first line contains an integer , the number of queries.
+Each of the next  lines contains a string  to analyze.
+
+Constraints
+
+
+
+String  contains only lowercase letters  ascii[a-z].
+
+Output Format
+
+abba
+abcd
+
+4
+0
+
+//  a a
+// ab
+
+  static int sherlockAndAnagrams(String s) {
+       //static List getSubStrings()
+       //static isAnagram()
+
+
+        return
+
+    }
+  static boolean isAnagram(String a, String b){
+        a
+  }
+
+Sample Output 0
+
+4
+0
+Explanation 0
+
+The list of all anagrammatic pairs is  and  at positions  and  respectively.
+
+No anagrammatic pairs exist in the second query as no character repeats.

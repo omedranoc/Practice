@@ -11,7 +11,7 @@ public class DFS {
     public void preorder(Node node){
         if (node == null)
             return;
-        deepSearch.add(node.getKey());
+        System.out.println(node.getKey());
         preorder(node.getLeft());
         preorder(node.getRight());
 
@@ -21,16 +21,15 @@ public class DFS {
             return;
         inOrder(node.getLeft());
         System.out.println(node.getKey());
-        deepSearch.add(node.getKey());
         inOrder(node.getRight());
     }
-    public void cc(Node node){
+    public void postOrder(Node node){
         if (node == null)
             return;
-        inOrder(node.getLeft());
-        inOrder(node.getRight());
+        postOrder(node.getLeft());
+        postOrder(node.getRight());
         System.out.println(node.getKey());
-        deepSearch.add(node.getKey());
+
     }
 
 

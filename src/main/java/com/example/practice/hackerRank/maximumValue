@@ -1,0 +1,23 @@
+
+public static int getMaximumValue(int N){
+       int absoluteValue = Math.abs(N);
+       boolean flag = N >=0 : true? false;
+       String digits = (new  Integer(int)).toString();
+       for (int i = 0; i < digits.length(); i ++){
+            if( 5 > new Integer(digits.charAt(i)) && digits){
+                string.insert();
+                return new Integer(String);
+            }
+            if(digits && 5 < new Integer(digits.charAt(i))){
+               string.insert();
+               return new Integer(string);
+            }
+       }
+
+
+
+
+
+
+
+}

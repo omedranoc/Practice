@@ -1,5 +1,6 @@
 package com.example.practice.aws
 
+import com.example.practice.pramp.Solution
 import spock.lang.Specification
 
 class MinimumDistanceTest extends Specification {
